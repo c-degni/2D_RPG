@@ -64,7 +64,6 @@ public class Player extends Entity {
                 direction = "right";
             } else if (keyH.leftPressed) {
                 direction = "left";
-
             }
 
             // TILE COLLISION CHECK

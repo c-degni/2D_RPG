@@ -17,10 +17,10 @@ public class TileManager {
     public TileManager(GamePanel gp) {
         this.gp = gp;
         tile = new Tile[10];
-        mapTileNum = new int[gp.maxScreenRow][gp.maxScreenCol];
+        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/map01.txt");
+        loadMap("/maps/worldMap01.txt");
     }
 
     public void getTileImage() {
@@ -52,10 +52,10 @@ public class TileManager {
             InputStream is = getClass().getResourceAsStream(mapFile);
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-            for (int row = 0; row < gp.maxScreenRow; row++) {
+            for (int row = 0; row < gp.maxWorldRow; row++) {
                 String line = br.readLine();
                 String[] nums = line.split(" ");
-                for (int col = 0; col < gp.maxScreenCol; col++) {
+                for (int col = 0; col < gp.maxWorldCol; col++) {
                     int num = Integer.parseInt(nums[col]);
                     mapTileNum[row][col] = num;
 //                    System.out.println(mapTileNum[row][col]);
@@ -71,14 +71,17 @@ public class TileManager {
         int x = 0;
         int y = 0;
 
-        for (int row = 0; row < gp.maxScreenRow; row++) {
-            for (int col = 0; col < gp.maxScreenCol; col++) {
-                int tileNum = mapTileNum[row][col];
-                g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-                x += gp.tileSize;
+        for (int worldRow = 0; worldRow < gp.maxWorldRow; worldRow++) {
+            for (int worldCol = 0; worldCol < gp.maxWorldCol; worldCol++) {
+                int tileNum = mapTileNum[worldRow][worldCol];
+
+                int worldX = worldCol * gp.tileSize;
+                int worldY = worldRow * gp.tileSize;
+                int screenX = worldX - gp.player.worldX + gp.player.screenX;
+                int screenY = worldY - gp.player.worldY + gp.player.screenY;
+
+                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
             }
-            x = 0;
-            y += gp.tileSize;
         }
     }
 }

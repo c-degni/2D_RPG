@@ -93,7 +93,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         player.draw(g2);
 
-        debugMenu.draw(g2);
+        if (keyH.debugMenu) {
+            debugMenu.draw(g2);
+        }
 
         g2.dispose();
     }

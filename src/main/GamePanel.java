@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import menus.DebugMenu;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -31,6 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
     public Player player = new Player(this,keyH);
+    public DebugMenu debugMenu = new DebugMenu(player);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -70,6 +72,7 @@ public class GamePanel extends JPanel implements Runnable{
 
             if (timer >= 1000000000) {
                 System.out.println("FPS: " + drawCount);
+                debugMenu.updateFPS((int)drawCount); // Change this to a better implementation
                 drawCount = 0;
                 timer = 0;
             }
@@ -89,6 +92,8 @@ public class GamePanel extends JPanel implements Runnable{
         tileM.draw(g2);
 
         player.draw(g2);
+
+        debugMenu.draw(g2);
 
         g2.dispose();
     }

@@ -22,7 +22,7 @@ public class DebugMenu {
 
     public void draw(Graphics2D g2) {
         g2.setColor(Color.black);
-        g2.fillRect(20, 20, 100, 70);
+        g2.fillRect(20, 20, 100, 100);
         g2.setColor(Color.white);
         g2.drawString("Debug Menu", 30, 30);
 
@@ -31,5 +31,8 @@ public class DebugMenu {
 
         // World x and world y
         g2.drawString("(" + this.player.worldX + ", " + this.player.worldY + ")", 30, 70);
+
+        // Tile x and y
+        g2.drawString("(" + this.player.tileX + ", " + this.player.tileY + ")", 30, 90);
     }
 }

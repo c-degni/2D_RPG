@@ -84,7 +84,6 @@ public class GamePanel extends JPanel implements Runnable{
             }
 
             if (timer >= 1000000000) {
-                System.out.println("FPS: " + drawCount);
                 debugMenu.updateFPS((int)drawCount); // Change this to a better implementation
                 drawCount = 0;
                 timer = 0;
@@ -117,6 +116,9 @@ public class GamePanel extends JPanel implements Runnable{
         ui.draw(g2);
 
         debugMenu.draw(g2);
+        if (keyH.debugMenu) {
+            debugMenu.draw(g2);
+        }
 
         g2.dispose();
     }

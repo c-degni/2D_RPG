@@ -115,7 +115,6 @@ public class GamePanel extends JPanel implements Runnable{
         // UI
         ui.draw(g2);
 
-        debugMenu.draw(g2);
         if (keyH.debugMenu) {
             debugMenu.draw(g2);
         }

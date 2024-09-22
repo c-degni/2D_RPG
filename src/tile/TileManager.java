@@ -61,7 +61,6 @@ public class TileManager {
                 for (int col = 0; col < gp.maxWorldCol; col++) {
                     int num = Integer.parseInt(nums[col]);
                     mapTileNum[row][col] = num;
-//                    System.out.println(mapTileNum[row][col]);
                 }
             }
             br.close();

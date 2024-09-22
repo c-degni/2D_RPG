@@ -47,7 +47,8 @@ public class DebugMenu {
     /*
     Draws debug text.
      */
-    public int drawDebugText(Graphics2D g2, String debugText, int x, int y) {
+    public int drawDebugText(Graphics2D g2, String debugText, int x, int y)
+    {
         Rectangle2D textBounds = g2.getFontMetrics().getStringBounds(debugText, g2);
         g2.setColor(backgroundColor);
         g2.fillRect(
@@ -61,7 +62,16 @@ public class DebugMenu {
         return (int)(textBounds.getHeight()*1.5);
     }
 
-    public void draw(Graphics2D g2) {
+    public void drawColoredTile(Graphics2D g2, int tileX, int tileY, Color color)
+    {
+        Color currentColor = g2.getColor();
+        g2.setColor(color);
+        g2.fillRect((tileX/48)*48, (tileY/48)*48, 48, 48);
+        g2.setColor(currentColor);
+    }
+
+    public void draw(Graphics2D g2)
+    {
         int currentDrawY = 50;
 
         g2.setColor(backgroundColor);
@@ -72,6 +82,7 @@ public class DebugMenu {
         currentDrawY += drawDebugText(g2, "FPS", 30, currentDrawY, currentFPS);
         currentDrawY += drawDebugText(g2, "World Position", 30, currentDrawY, this.player.worldX, this.player.worldY);
         currentDrawY += drawDebugText(g2, "Tile Position", 30, currentDrawY, this.player.tileX, this.player.tileY);
+
 
     }
 }

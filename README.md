@@ -1,14 +1,12 @@
-## 2D RPG
+## Treasure Hunt Game
 ### Vision
-This is meant to be a 2D action/adventure RPG with:
-- Similar fighting mechanics to Castle Crashers
-- Character classes
-- Upgradeable attributes
-- Varieties of weapons, items, and consumables
-- Elden Ring esque story progression
+This is meant to be a 2D game with:
+- Large map
+- Speedrunner
+- Powerup items
 
 ### Plot
-Currently undecided
+You are a blue boy who has a thirst for treasure! Find the keys spread around the map to open doors and open the _treasure_!
 
 ### Goals
 - Familiarize with game development
@@ -17,4 +15,4 @@ Currently undecided
 - HAVE FUN
 
 ## Team
-Christ, Zachary, Div, Max
+Christ and Zachary

@@ -77,6 +77,7 @@ public class DebugMenu {
         g2.setColor(backgroundColor);
         g2.fillRect(20, 20, 100, 10);
         g2.setColor(textColor);
+        g2.setFont(g2.getFont().deriveFont(12F));
         g2.drawString("Debug Menu", 30, 30);
 
         currentDrawY += drawDebugText(g2, "FPS", 30, currentDrawY, currentFPS);
